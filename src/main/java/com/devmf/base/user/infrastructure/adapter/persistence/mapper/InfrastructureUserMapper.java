@@ -13,6 +13,4 @@ public interface InfrastructureUserMapper {
     UserEntity toUserEntity(UserReq userReq);
 
     UserRes toUserRes(UserEntity userEntity);
-
-    Optional<UserRes> toUserRes(Optional<UserEntity> userEntity);
 }

@@ -1,4 +1,4 @@
-package com.devmf.base.shared.model;
+package com.devmf.base.common.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +21,14 @@ public class Response<T> {
         setSuccess(success);
         setCode(ResponseCode.OK);
         setMessage(message);
+        return this;
+    }
+
+    public Response<T> ok(String message, T data) {
+        setSuccess(true);
+        setCode(ResponseCode.OK);
+        setMessage(message);
+        setData(data);
         return this;
     }
 

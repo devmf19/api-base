@@ -1,7 +1,7 @@
 package com.devmf.base.user.infrastructure.adapter.api.controller;
 
-import com.devmf.base.shared.model.Request;
-import com.devmf.base.shared.model.Response;
+import com.devmf.base.common.model.Request;
+import com.devmf.base.common.model.Response;
 import com.devmf.base.user.application.dto.response.UserRes;
 import com.devmf.base.user.application.port.in.UserManager;
 import com.devmf.base.user.infrastructure.adapter.api.dto.request.UserReq;

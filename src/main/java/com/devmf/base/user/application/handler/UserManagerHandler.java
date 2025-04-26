@@ -1,7 +1,7 @@
 package com.devmf.base.user.application.handler;
 
-import com.devmf.base.shared.model.Response;
-import com.devmf.base.user.application.dto.constant.ResponseMessage;
+import com.devmf.base.common.model.Response;
+import com.devmf.base.user.application.dto.constant.UserResponseString;
 import com.devmf.base.user.application.dto.response.UserRes;
 import com.devmf.base.user.application.port.in.UserManager;
 import com.devmf.base.user.application.port.out.UserRepository;
@@ -30,17 +30,17 @@ public class UserManagerHandler implements UserManager {
 
         boolean existUser = userRepository.existsUserByDocumentNumber(user.getDocumentNumber());
         if (existUser) {
-            return new Response<UserRes>().badRequest(ResponseMessage.USER_ALREADY_EXISTS);
+            return new Response<UserRes>().badRequest(UserResponseString.USER_ALREADY_EXISTS);
         }
 
         Optional<UserRes> userRes = userRepository.saveUser(user);
 
         if(userRes.isEmpty()) {
-            return new Response<UserRes>().error(ResponseMessage.NOT_CREATED_USER);
+            return new Response<UserRes>().error(UserResponseString.NOT_CREATED_USER);
         }
 
         return new Response<UserRes>().created(
-                ResponseMessage.CREATED_USER,
+                UserResponseString.CREATED_USER,
                 userRes.get()
         );
     }
@@ -55,17 +55,17 @@ public class UserManagerHandler implements UserManager {
          */
 
         if(userId == null) {
-            return new Response<UserRes>().badRequest(ResponseMessage.ID_REQUIRED);
+            return new Response<UserRes>().badRequest(UserResponseString.ID_REQUIRED);
         }
 
         Optional<UserRes> userRes = userRepository.findUserById(userId);
 
         if(userRes.isEmpty()) {
-            return new Response<UserRes>().error(ResponseMessage.NOT_FOUND_USER);
+            return new Response<UserRes>().error(UserResponseString.NOT_FOUND_USER);
         }
 
         return new Response<UserRes>().created(
-                ResponseMessage.SUCCESS,
+                UserResponseString.SUCCESS,
                 userRes.get()
         );
     }

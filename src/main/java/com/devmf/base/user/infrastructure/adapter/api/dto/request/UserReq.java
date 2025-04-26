@@ -2,21 +2,13 @@ package com.devmf.base.user.infrastructure.adapter.api.dto.request;
 
 import com.devmf.base.user.infrastructure.adapter.api.dto.constant.UserRequestMessage;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.Data;
 import java.util.Date;
 
 @Builder
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class UserReq {
 
     @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD + "documentNumber")

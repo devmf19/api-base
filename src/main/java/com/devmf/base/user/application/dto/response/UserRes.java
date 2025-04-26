@@ -1,14 +1,12 @@
 package com.devmf.base.user.application.dto.response;
 
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.Date;
 
-@Getter
-@Setter
 @Builder
+@Data
 public class UserRes {
     private String id;
     private String documentNumber;

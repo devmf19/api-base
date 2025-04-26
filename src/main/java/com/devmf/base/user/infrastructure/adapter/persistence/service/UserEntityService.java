@@ -22,7 +22,7 @@ public class UserEntityService implements UserRepository {
 
     @Override
     public Optional<UserRes> saveUser(UserReq user) {
-        log.info("method: saveUser {}", user);
+        log.debug("{}", user);
         try {
             UserEntity userEntity = infrastructureUserMapper.toUserEntity(user);
             userEntityRepository.save(userEntity);
@@ -35,16 +35,16 @@ public class UserEntityService implements UserRepository {
 
     @Override
     public Boolean existsUserByDocumentNumber(String documentNumber) {
-        log.info("method: existsUserByDocumentNumber {}", documentNumber);
+        log.debug("{}", documentNumber);
         return userEntityRepository.existsByDocumentNumber(documentNumber);
     }
 
     @Override
     public Optional<UserRes> findUserById(Long userId) {
-        log.info("method: findUserById {}", userId);
+        log.debug("{}", userId);
         try {
             Optional<UserEntity> userEntity = userEntityRepository.findById(userId);
-            Optional<UserRes> userRes = infrastructureUserMapper.toUserRes(userEntity);
+            Optional<UserRes> userRes = Optional.ofNullable(infrastructureUserMapper.toUserRes(userEntity.orElse(null)));
             return userRes;
         } catch (Exception e) {
             log.error("Failed user search {} - {}", userId, e.getMessage());
