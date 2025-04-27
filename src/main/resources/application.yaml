@@ -2,9 +2,9 @@ spring:
   application:
     name: base
   datasource:
-    url: jdbc:postgresql://localhost:5432/db-api-base
-    username: macbook
-    password: "#devmf19"
+    url: ${DB_HOST}
+    username: ${DB_USER}
+    password: ${DB_PASS}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
@@ -16,8 +16,6 @@ spring:
 
 api:
   security:
-    default-user: admin
-    default-password: password
     secret: ${JWT_SECRET:secret}
     expirationInMs: ${JWT_EXPIRATION_IN_MS:20000000}
 
