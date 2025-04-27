@@ -2,33 +2,32 @@ spring:
   application:
     name: base
   datasource:
-    url: jdbc:postgresql://localhost:5432/db
-    username: user
-    password: password
+    url: ${DB_HOST}
+    username: ${DB_USER}
+    password: ${DB_PASS}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
+
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+api:
   security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: GOOGLE_CLIENT_ID
-            client-secret: GOOGLE_CLIENT_SECRET
-            scope: profile, email
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            authorization-grant-type: authorization_code
-        provider:
-          google:
-            token-uri: https://oauth2.googleapis.com/token
-            authorization-uri: https://accounts.google.com/o/oauth2/auth
-            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
-  api:
-    base-url: /api/v1
-    jwt:
-      secret: secret-key
-      expiration: 3600
+    secret: ${JWT_SECRET:secret}
+    expirationInMs: ${JWT_EXPIRATION_IN_MS:20000000}
+
+logging:
+  level:
+    root: info
+    com:
+      devmf:
+        base: debug
+    org:
+      springdoc: error
+  pattern:
+    console: "%highlight(%-5level) %d{'yy-MM-dd HH:mm:ss'} - file %F, method %M, line %L: %replace(%msg){'\n',''}%n%ex{full}"
+    #IDEBUG 25-04-26 17:54:34 - file AuthController.java, method create, line 27: com.devmf.base.common.model.Request@54fe7f1d
+

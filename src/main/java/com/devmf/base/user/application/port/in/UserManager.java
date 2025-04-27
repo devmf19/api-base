@@ -1,6 +1,6 @@
 package com.devmf.base.user.application.port.in;
 
-import com.devmf.base.shared.model.Response;
+import com.devmf.base.common.model.Response;
 import com.devmf.base.user.application.dto.response.UserRes;
 import com.devmf.base.user.infrastructure.adapter.api.dto.request.UserReq;
 

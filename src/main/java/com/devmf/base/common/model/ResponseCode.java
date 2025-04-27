@@ -1,4 +1,4 @@
-package com.devmf.base.shared.model;
+package com.devmf.base.common.model;
 
 public enum ResponseCode {
     OK,
