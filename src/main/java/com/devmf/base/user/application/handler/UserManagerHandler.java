@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserManagerHandler implements UserManager {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Override
     public Response<UserRes> createUser(UserReq user) {
@@ -64,7 +64,7 @@ public class UserManagerHandler implements UserManager {
             return new Response<UserRes>().error(UserResponseString.NOT_FOUND_USER);
         }
 
-        return new Response<UserRes>().created(
+        return new Response<UserRes>().ok(
                 UserResponseString.SUCCESS,
                 userRes.get()
         );

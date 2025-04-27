@@ -17,8 +17,8 @@ import java.util.Optional;
 @Slf4j
 public class UserEntityService implements UserRepository {
 
-    private UserEntityRepository userEntityRepository;
-    private InfrastructureUserMapper infrastructureUserMapper;
+    private final UserEntityRepository userEntityRepository;
+    private final InfrastructureUserMapper infrastructureUserMapper;
 
     @Override
     public Optional<UserRes> saveUser(UserReq user) {

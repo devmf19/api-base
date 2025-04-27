@@ -46,7 +46,7 @@ public class UserEntity {
     private String email;
 
     @Column(name = "phone", nullable = false)
-    private Integer phone;
+    private String phone;
 
     @Column(name = "address", nullable = false)
     private String address;

@@ -11,27 +11,27 @@ import java.util.Date;
 @Data
 public class UserReq {
 
-    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD + "documentNumber")
-    @Size(min = 6, max = 12, message = UserRequestMessage.OUT_OF_RANGE + "documentNumber")
+    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD)
+    @Size(min = 6, max = 12, message = UserRequestMessage.OUT_OF_RANGE)
     private String documentNumber;
 
-    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD + "firstName")
+    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD)
     private String firstName;
 
     private String secondName;
 
-    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD + "firstLastName")
+    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD)
     private String firstLastName;
 
     private String secondLastName;
 
     private String email;
 
-    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD + "phone")
-    @Size(min = 7, max = 15, message = UserRequestMessage.OUT_OF_RANGE + "phone")
+    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD)
+    @Size(min = 7, max = 15, message = UserRequestMessage.OUT_OF_RANGE)
     private String phone;
 
-    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD + "address")
+    @NotBlank(message = UserRequestMessage.EMPTY_OR_NULL_FIELD)
     private String address;
 
     private Date birthday;
